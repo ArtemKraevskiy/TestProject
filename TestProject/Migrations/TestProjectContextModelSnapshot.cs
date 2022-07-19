@@ -31,6 +31,33 @@ namespace TestProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Courses");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Number = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Number = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Number = 3
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Number = 4
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Number = 5
+                        });
                 });
 
             modelBuilder.Entity("TestProject.Models.Group", b =>
@@ -62,6 +89,26 @@ namespace TestProject.Migrations
                     b.HasIndex("TeacherID");
 
                     b.ToTable("Groups");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CourseID = 2,
+                            Name = "Название Группы1",
+                            Specialty = "Специальность1",
+                            TeacherID = 1,
+                            Year = 2020
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CourseID = 4,
+                            Name = "Название Группы2",
+                            Specialty = "Специальность2",
+                            TeacherID = 3,
+                            Year = 2018
+                        });
                 });
 
             modelBuilder.Entity("TestProject.Models.Student", b =>
@@ -88,6 +135,40 @@ namespace TestProject.Migrations
                     b.HasIndex("GroupID");
 
                     b.ToTable("Students");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            GroupID = 1,
+                            Name = "Студент1",
+                            PhoneNumber = 77836940,
+                            Photo = "/img/Студент1.jpg"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            GroupID = 1,
+                            Name = "Студент2",
+                            PhoneNumber = 77840182,
+                            Photo = "/img/Студент2.jpg"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            GroupID = 2,
+                            Name = "Студент3",
+                            PhoneNumber = 68593027,
+                            Photo = "/img/Студент3.jpg"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            GroupID = 2,
+                            Name = "Студент5",
+                            PhoneNumber = 77869104,
+                            Photo = "/img/Студент5.jpg"
+                        });
                 });
 
             modelBuilder.Entity("TestProject.Models.Teacher", b =>
@@ -103,6 +184,33 @@ namespace TestProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Teachers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Имя1 Фамилия1"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Имя2 Фамилия2"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Имя3 Фамилия3"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Имя4 Фамилия4"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Имя5 Фамилия5"
+                        });
                 });
 
             modelBuilder.Entity("TestProject.Models.Group", b =>
