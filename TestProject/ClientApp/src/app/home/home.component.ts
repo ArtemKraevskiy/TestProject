@@ -30,6 +30,7 @@ export class HomeComponent {
 
   deleteGroup(id: number) {
     this.dataTransferService.groupID = id;
+    this.dataTransferService.groupSelected = false;
     this.http.delete(this.baseUrl + 'Group/' + id).subscribe((data: any) => {
       //this.router.navigate(['/']);
       //this.http.get<GroupViewModel[]>(this.baseUrl + 'Group/ListGroups').subscribe(result => {
