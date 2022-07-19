@@ -1,0 +1,52 @@
+<h3>Добавление группы</h3>
+<form method="post">
+  <div class="row">
+    <div class="col-4">
+      <div class="form-group">
+        <label class="control-label">Название группы:</label>
+        <input class="form-control" name="name" [(ngModel)]="group.name" />
+        <span class="text-danger"></span>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Год:</label>
+        <input type="number" class="form-control" name="year" [(ngModel)]="group.year" />
+        <span class="text-danger"></span>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Название специальности:</label>
+        <input class="form-control" name="specialties" [(ngModel)]="group.specialty" />
+        <span class="text-danger"></span>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Преподаватель:</label>
+        <select  class="form-control" name="teacher" [(ngModel)]="group.teacherID">
+          <option *ngFor="let item of createGroupViewModel.listOfTeachers" value="{{item.id}}">{{item.name}}</option>
+        </select>  
+      </div>
+      <div class="form-group">
+        <label class="control-label">Курс:</label>
+        <select class="form-control" name="course" [(ngModel)]="group.courseID" >
+          <option *ngFor="let item of createGroupViewModel.listOfCourses" value="{{item.id}}">{{item.number}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <button type="button" class="btn btn-primary" (click)="submit(group)" data-toggle="modal" data-target="#exampleModal">Добавить</button>
+      </div>
+
+      <div *ngIf="done">
+        <div *ngIf="success" class="alert alert-success" role="alert">
+          Группа успешно добавлена!
+        </div>
+        <div *ngIf="!success">
+          <div *ngIf="!formCompleted" class="alert alert-warning" role="alert">
+            Заполните все поля!
+          </div>
+          <div *ngIf="formCompleted" class="alert alert-danger" role="alert">
+            Не удалось добавить группу!
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</form>

@@ -1,0 +1,66 @@
+<a routerLink="/create-group"><u>Добавить группу</u></a>
+<h3 class="mt-3">Список групп:</h3>
+
+<p *ngIf="!groups">Загрузка...</p>
+
+<div class="row" *ngIf="groups">
+  <div class="col">
+    <p><u>Год</u></p>
+  </div>
+  <div class="col">
+    <p><u>Специальность</u></p>
+  </div>
+  <div class="col">
+    <p><u>Куратор</u></p>
+  </div>
+  <div class="col">
+    <p><u>Курс</u></p>
+  </div>
+</div>
+<hr>
+
+
+
+<div *ngFor="let group of groups" class="mb-5">
+
+  <div class="position-relative">
+
+    <div class="row mb-0">
+      <div class="col">
+        <h3>{{ group.name }}</h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <p class="mb-0">{{ group.year }}</p>
+      </div>
+      <div class="col">
+        <p class="mb-0">{{ group.specialty }}</p>
+      </div>
+      <div class="col">
+        <p class="mb-0">{{ group.teacher.name }}</p>
+      </div>
+      <div class="col">
+        <p class="mb-0">{{ group.course.number }}</p>
+      </div>
+    </div>
+
+    <a routerLink="/students-list" (click)="transferGroup(group.id, group.name)" class="stretched-link"></a>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <a routerLink="/change-group" (click)="changeGroup(group.id)"><u>Редактировать</u></a><p style="display:inline">/</p><a routerLink="/home" (click)="deleteGroup(group.id)"><u>Удалить</u></a>
+    </div>
+  </div>
+
+  <div *ngIf="dataTransferService.groupID == group.id">
+  <div *ngIf="!success" class="alert alert-warning" role="alert">
+    В данной группе есть студенты!
+  </div>
+    </div>
+
+</div>
+
+
