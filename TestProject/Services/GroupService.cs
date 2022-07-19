@@ -19,17 +19,17 @@ namespace TestProject.Services
 
         public Group GetByld(int id) => _context.Groups.FirstOrDefault(t => t.Id == id);
 
-        public void AddByld(Group group)
+        public void Add(Group group)
         {
             _context.Add(group);
             _context.SaveChanges();
         }
-        public void RemovByld(Group group)
+        public void Delete(Group group)
         {
             _context.Groups.Remove(group);
             _context.SaveChangesAsync();
         }
-        public void ChangeByld(Group group)
+        public void Update(Group group)
         {
             _context.Groups.Update(group);
             _context.SaveChanges();

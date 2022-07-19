@@ -53,7 +53,7 @@ namespace TestProject.Controllers
             try
             {
                 _studentService.AddPhoto(model);
-                _studentService.AddByld(_mapper.Map<Student>(model));
+                _studentService.Add(_mapper.Map<Student>(model));
                 return true;
             }
             catch
@@ -68,7 +68,7 @@ namespace TestProject.Controllers
             if (_studentService.GetByld(id) != null)
             {
                 _studentService.DeletePhotoFile(_studentService.GetByld(id));
-                _studentService.RemovByld(_studentService.GetByld(id));
+                _studentService.Delete(_studentService.GetByld(id));
             }
         }
 
@@ -88,9 +88,9 @@ namespace TestProject.Controllers
                 if (!model.Photo.StartsWith("data:image/"))
                 {
                     var student = _studentService.GetByld(model.Id);
-                    model = _studentService.ChangePhotoFile(student, model);
+                    model = _studentService.ChangePhoto(student, model);
                     _mapper.Map(model, student);
-                    _studentService.ChangeByld(student);
+                    _studentService.Update(student);
                 }
                 else
                 {
@@ -98,7 +98,7 @@ namespace TestProject.Controllers
                     _studentService.DeletePhotoFile(student);
                     _studentService.AddPhoto(model);                   
                     _mapper.Map(model, student);
-                    _studentService.ChangeByld(student);
+                    _studentService.Update(student);
                 }
 
                 return true;

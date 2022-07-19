@@ -67,7 +67,7 @@ namespace TestProject.Controllers
         {
             try
             {
-                _groupService.AddByld(_mapper.Map<Group>(model));
+                _groupService.Add(_mapper.Map<Group>(model));
                 return true;
             }
             catch
@@ -83,7 +83,7 @@ namespace TestProject.Controllers
             {
                 if (!_studentService.ExistStudentsInGroup(id))
                 {
-                    _groupService.RemovByld(_groupService.GetByld(id));
+                    _groupService.Delete(_groupService.GetByld(id));
                     return true;
                 }
                 else
@@ -111,7 +111,7 @@ namespace TestProject.Controllers
         public bool ChangeGroup(GroupViewModel model)
         {
             try {
-                _groupService.ChangeByld(_mapper.Map<Group>(model));
+                _groupService.Update(_mapper.Map<Group>(model));
                 return true;
             }
             catch

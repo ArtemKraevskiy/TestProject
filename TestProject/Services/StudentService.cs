@@ -44,7 +44,7 @@ namespace TestProject.Services
             studentModel.Photo = "/img/" + studentModel.Name + ".jpg";
         }
 
-        public StudentViewModel ChangePhotoFile(Student student, StudentViewModel studentModel)
+        public StudentViewModel ChangePhoto(Student student, StudentViewModel studentModel)
         {
             string oldPhotoFileName = _appEnvironment.WebRootPath + student.Photo;
             studentModel.Photo = "/img/" + studentModel.Name + ".jpg";
@@ -52,17 +52,17 @@ namespace TestProject.Services
             fileInf.MoveTo(_appEnvironment.WebRootPath + studentModel.Photo);
             return studentModel;
         }
-        public void AddByld(Student student)
+        public void Add(Student student)
         {
             _context.Add(student);
             _context.SaveChanges();
         }
-        public void RemovByld(Student student)
+        public void Delete(Student student)
         {
             _context.Students.Remove(student);
             _context.SaveChangesAsync();
         }
-        public void ChangeByld(Student student)
+        public void Update(Student student)
         {
             _context.Students.Update(student);
             _context.SaveChanges();

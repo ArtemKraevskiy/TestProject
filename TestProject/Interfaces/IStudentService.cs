@@ -11,9 +11,9 @@ namespace TestProject.Interfaces
         Student GetByld(int id);
         void DeletePhotoFile(Student student);
         void AddPhoto(StudentViewModel studentModel);
-        StudentViewModel ChangePhotoFile(Student student, StudentViewModel studentModel);
-        void AddByld(Student student);
-        void RemovByld(Student student);
-        void ChangeByld(Student student);
+        StudentViewModel ChangePhoto(Student student, StudentViewModel studentModel);
+        void Add(Student student);
+        void Delete(Student student);
+        void Update(Student student);
     }
 }

@@ -7,8 +7,8 @@ namespace TestProject.Interfaces
     {
         IEnumerable<Group> GetAll();
         Group GetByld(int id);
-        void AddByld(Group group);
-        void RemovByld(Group group);
-        void ChangeByld(Group group);
+        void Add(Group group);
+        void Delete(Group group);
+        void Update(Group group);
     }
 }
